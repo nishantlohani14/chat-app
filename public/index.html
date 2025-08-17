@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Chat App</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>💬 Real-time Chat</h1>
+            <div class="connection-status" id="connectionStatus">
+                <span class="status-dot"></span>
+                <span class="status-text">Connecting...</span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="user-section">
+                    <h3>👤 User Settings</h3>
+                    <div class="username-form">
+                        <input type="text" id="usernameInput" placeholder="Enter username" maxlength="20">
+                        <button id="setUsernameBtn">Set Username</button>
+                    </div>
+                    <div class="current-user">
+                        <span>Current: </span>
+                        <span id="currentUsername">User_...</span>
+                    </div>
+                </div>
+
+                <div class="room-section">
+                    <h3>🏠 Room Management</h3>
+                    <div class="room-form">
+                        <input type="text" id="roomInput" placeholder="Enter room name" maxlength="30">
+                        <button id="joinRoomBtn">Join Room</button>
+                        <button id="leaveRoomBtn" disabled>Leave Room</button>
+                    </div>
+                    <div class="current-room">
+                        <span>Current: </span>
+                        <span id="currentRoom">General</span>
+                    </div>
+                </div>
+
+                <div class="users-section">
+                    <h3>👥 Online Users</h3>
+                    <div class="users-list" id="usersList">
+                        <div class="no-users">No users online</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-area">
+                <div class="messages-container" id="messagesContainer">
+                    <div class="welcome-message">
+                        <h2>Welcome to the Chat!</h2>
+                        <p>Set your username and start chatting. You can join different rooms to have private conversations.</p>
+                    </div>
+                </div>
+
+                <div class="message-input-container">
+                    <div class="input-wrapper">
+                        <input type="text" id="messageInput" placeholder="Type your message..." maxlength="500">
+                        <button id="sendMessageBtn" disabled>Send</button>
+                    </div>
+                    <div class="input-info">
+                        <span id="charCount">0/500</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
